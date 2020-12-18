@@ -14,7 +14,7 @@ connection.connnect((err) => {
   runsearch();
 });
 
-const runsearch = () => {
+const startScreen = () => {
   inquirer
     .prompt({
       name: "action",
@@ -65,4 +65,13 @@ const runsearch = () => {
           break;
       }
     });
+};
+
+const employeeSearch = () => {
+  const query = "SELECT * FROM employee";
+  connection.query(query, (err, res) => {
+    if (err) throw err;
+    console.table(res);
+    startScreen();
+  });
 };
