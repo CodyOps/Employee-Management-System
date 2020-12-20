@@ -18,7 +18,7 @@ Employee Management System
 
 _Quick description about this project_
 
-The purpose of this application is the create an interface that will make it easy for non-developers to view and interact with data and information that is stored in databases. The challenge of this assignment is to architect a solution to manage a company's employees using node.js, inquirer npm package, and MySQL.
+The purpose of this application is the create an interface that will make it easy for non-developers to view and interact with data and information that is stored in databases. The challenge of this assignment is to architect a solution to manage a company's employees using node.js, inquirer npm package, and MySQL. The application will use MySQL NPM package to connect to the MySQL database and perform queries. The Inquirer.js NPM package will be use to interact with the user via the command line.
 
 ## User Story
 
@@ -29,6 +29,16 @@ As a business owner, I want to be able to view and manage the departments, roles
 ## Photos
 
 _Photos of this Project:_
+
+![Screen Shot 2020-12-20 at 1 48 17 PM](https://user-images.githubusercontent.com/70075378/102724084-249c9280-42ca-11eb-8031-951188f59c7d.png)
+
+![Screen Shot 2020-12-20 at 1 48 33 PM](https://user-images.githubusercontent.com/70075378/102724096-3120eb00-42ca-11eb-9e0d-d104a5e7b55b.png)
+
+![Screen Shot 2020-12-20 at 1 48 47 PM](https://user-images.githubusercontent.com/70075378/102724099-3716cc00-42ca-11eb-82c9-7c400a1ddf26.png)
+
+_Video of this Project:_
+
+https://drive.google.com/file/d/1_jmCtDCTzGJrz7XxVS--8pIj29Ke6vWB/view
 
 ## Technology
 
