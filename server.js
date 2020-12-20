@@ -9,9 +9,10 @@ const connection = mysql.createConnection({
   database: "employee_managementDB",
 });
 
-connection.connnect((err) => {
+connection.connect((err) => {
   if (err) throw err;
-  runsearch();
+  console.log("Connected as id: " + connection.threadId);
+  startScreen();
 });
 
 const startScreen = () => {
