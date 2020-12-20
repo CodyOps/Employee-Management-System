@@ -162,7 +162,14 @@ const addEmployee = () => {
     });
 };
 
-const viewDepartments = () => {};
+const viewDepartments = () => {
+  let query = "SELECT * FROM department";
+  connection.query(query, (err, res) => {
+    if (err) throw err;
+    console.table(res);
+    startScreen();
+  });
+};
 
 const viewRoles = () => {};
 
