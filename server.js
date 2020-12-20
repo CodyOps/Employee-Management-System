@@ -1,8 +1,10 @@
+//DEPENDENCIES
 const mysql = require("mysql");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const logo = require("asciiart-logo");
 
+//MYSQL CONNECTION
 const connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
@@ -11,6 +13,7 @@ const connection = mysql.createConnection({
   database: "employee_managementDB",
 });
 
+//CREATES A CONNECTION AND LOGS ARTWORK AND WELCOME SIGN IN TERMINAL. INITIATES THE START SCREEN FUNCTION UPON CONNECTION.
 connection.connect((err) => {
   if (err) throw err;
   console.log("Connected as id: " + connection.threadId);
@@ -37,6 +40,7 @@ connection.connect((err) => {
   startScreen();
 });
 
+//FUNCTION TO ALLOW THE USER TO SELECT FROM ALL POSSIBLE CHOICES FROM ADDING OR VIEWING DEPARTMENTS, ROLES, AND EMPLOYEES. CALLS THE REPECTIVE FUNCTIONS FOR EACH. EXIT WILL END THE CONNECTION.
 const startScreen = () => {
   inquirer
     .prompt({
@@ -91,6 +95,8 @@ const startScreen = () => {
     });
 };
 
+//USE INQUIRER TO PROMPT THE USER OF THE DEPARTMENT THEY WOULD LIKE TO ADD, INSERTS THAT INTO THE DEPARTMENT DATABASE TABLE.
+//INFORMS THE USER VIA A TABLE AND A CONSOLE.LOG OF THE ADDED DEPARTMENT.
 const addDeparment = () => {
   inquirer
     .prompt({
@@ -109,6 +115,8 @@ const addDeparment = () => {
     });
 };
 
+//USE INQUIRER TO PROMPT THE USER OF THE ROLE THEY WOULD LIKE TO ADD, INSERTS THAT INTO THE ROLE DATABASE TABLE.
+//INFORMS THE USER VIA A TABLE AND A CONSOLE.LOG OF THE ADDED ROLE.
 const addRole = () => {
   inquirer
     .prompt([
@@ -144,6 +152,8 @@ const addRole = () => {
     });
 };
 
+//USE INQUIRER TO PROMPT THE USER OF THE EMPLOYEE THEY WOULD LIKE TO ADD, INSERTS THAT INTO THE EMPLOYEE DATABASE TABLE.
+//INFORMS THE USER VIA A TABLE AND A CONSOLE.LOG OF THE ADDED EMPLOYEE.
 const addEmployee = () => {
   inquirer
     .prompt([
@@ -184,6 +194,7 @@ const addEmployee = () => {
     });
 };
 
+//CREATES A QUERY TO THE DEPARTMENT DATABASE AND SHOWS THE USER THE DEPARTMENTS TABLE, RUNS THE START SCREEN FUNCTION AGAIN TO ALLOW USERS TO CHOOSE A NEW ACTION
 const viewDepartments = () => {
   let query = "SELECT * FROM department";
   connection.query(query, (err, res) => {
@@ -193,6 +204,7 @@ const viewDepartments = () => {
   });
 };
 
+//CREATES A QUERY TO THE ROLE DATABASE AND SHOWS THE USER THE ROLES TABLE, RUNS THE START SCREEN FUNCTION AGAIN TO ALLOW USERS TO CHOOSE A NEW ACTION
 const viewRoles = () => {
   let query = "SELECT * FROM role";
   connection.query(query, (err, res) => {
