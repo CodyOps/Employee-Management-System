@@ -28,6 +28,7 @@ const startScreen = () => {
         "Remove Employee",
         "Update Employee Roles",
         "Update Employee Manager",
+        "Exit",
       ],
     })
     .then((answer) => {
@@ -60,8 +61,8 @@ const startScreen = () => {
           updateEmployeeManager();
           break;
 
-        default:
-          console.log(`Invalid action: ${answer.action}`);
+        case "Exit":
+          connection.end();
           break;
       }
     });
@@ -75,3 +76,5 @@ const employeeSearch = () => {
     startScreen();
   });
 };
+
+const searchByDepartment = () => {};
