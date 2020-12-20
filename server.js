@@ -87,7 +87,40 @@ const addDeparment = () => {
     });
 };
 
-const addRole = () => {};
+const addRole = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What's the name of the role you would like to add?",
+        name: "roleName",
+      },
+      {
+        type: "input",
+        message: "What is the salary for this role?",
+        name: "roleSalary",
+      },
+      {
+        type: "input",
+        message: "What is the department id number for this role?",
+        name: "departmentID",
+      },
+    ])
+    .then((answer) => {
+      let query =
+        "INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)";
+      connection.query(
+        query,
+        [answer.roleName, answer.roleSalary, answer.departmentID],
+        (err, res) => {
+          if (err) throw err;
+          console.log("You have successfully added this new role!");
+          console.table(res);
+          startScreen();
+        }
+      );
+    });
+};
 
 const addEmployee = () => {
   inquirer
