@@ -68,25 +68,9 @@ const startScreen = () => {
     });
 };
 
-const employeeSearch = () => {
-  const query = "SELECT * FROM employee";
-  connection.query(query, (err, res) => {
-    if (err) throw err;
-    console.table(res);
-    startScreen();
-  });
-};
+const addDeparment = () => {};
 
-const searchByDepartment = () => {
-  const query = "SELECT * FROM department";
-  connection.query(query, (err, res) => {
-    if (err) throw err;
-    console.table(res);
-    startScreen();
-  });
-};
-
-const byManager = () => {};
+const addRole = () => {};
 
 const addEmployee = () => {
   inquirer
@@ -128,7 +112,18 @@ const addEmployee = () => {
     });
 };
 
-const removeEmployee = () => {};
+const viewDepartments = () => {};
+
+const viewRoles = () => {};
+
+const viewEmployees = () => {
+  const query = "SELECT * FROM employee";
+  connection.query(query, (err, res) => {
+    if (err) throw err;
+    console.table(res);
+    startScreen();
+  });
+};
 
 const updateEmployeeRoles = () => {
   inquirer
