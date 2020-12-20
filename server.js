@@ -171,7 +171,14 @@ const viewDepartments = () => {
   });
 };
 
-const viewRoles = () => {};
+const viewRoles = () => {
+  let query = "SELECT * FROM role";
+  connection.query(query, (err, res) => {
+    if (err) throw err;
+    console.table(res);
+    startScreen();
+  });
+};
 
 const viewEmployees = () => {
   const query = "SELECT * FROM employee";
