@@ -113,13 +113,46 @@ const addEmployee = () => {
       },
     ])
     .then((answer) => {
-      const query =
+      let query =
         "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)";
       connection.query(
         query,
         [answer.firstname, answer.lastname, answer.roleID, answer.managerID],
         (err, res) => {
           if (err) throw err;
+          console.log("Employee was sucessfully added!");
+          console.table(res);
+          startScreen();
+        }
+      );
+    });
+};
+
+const removeEmployee = () => {};
+
+const updateEmployeeRoles = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Which employee would you like to update?",
+        name: "employeeUpdate",
+      },
+
+      {
+        type: "input",
+        message: "What role do you want to update this employee to?",
+        name: "updatedRole",
+      },
+    ])
+    .then((answer) => {
+      let query = "UPDATE employee SET role_id=? WHERE first_name= ?";
+      connection.query(
+        query,
+        [answer.updatedRole, answer.employeeUpdate],
+        (err, res) => {
+          if (err) throw err;
+          console.log("Employee role has been successfully updated!");
           console.table(res);
           startScreen();
         }
