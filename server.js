@@ -21,44 +21,44 @@ const startScreen = () => {
       type: "rawlist",
       message: "what would you like to do?",
       choices: [
-        "View all Employees",
-        "View all Employees By Department",
-        "View all Employees By Managers",
+        "Add Department",
+        "Add Role",
         "Add Employee",
-        "Remove Employee",
-        "Update Employee Roles",
-        "Update Employee Manager",
+        "View Departments",
+        "View Roles",
+        "View Employees",
+        "Update Employee Role",
         "Exit",
       ],
     })
     .then((answer) => {
       switch (answer.action) {
-        case "View all Employees":
-          employeeSearch();
+        case "Add Department":
+          addDeparment();
           break;
 
-        case "View all Employees By Department":
-          searchByDepartment();
-          break;
-
-        case "View all Employees By Managers":
-          byManager();
+        case "Add Role":
+          addRole();
           break;
 
         case "Add Employee":
           addEmployee();
           break;
 
-        case "Remove Employee":
-          removeEmployee();
+        case "View Departments":
+          viewDepartments();
           break;
 
-        case "Update Employee Roles":
+        case "View Roles":
+          viewRoles();
+          break;
+
+        case "View Employees":
+          viewEmployees();
+          break;
+
+        case "Update Employee Role":
           updateEmployeeRoles();
-          break;
-
-        case "Update Employee Manager":
-          updateEmployeeManager();
           break;
 
         case "Exit":
