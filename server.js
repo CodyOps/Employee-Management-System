@@ -1,5 +1,7 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
+const chalk = require("chalk");
+const logo = require("asciiart-logo");
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -12,6 +14,26 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) throw err;
   console.log("Connected as id: " + connection.threadId);
+  console.log(chalk.bgCyan("Welcome!"));
+  const longText =
+    "Add departments, roles, and employees to the Employee Management System. Also view tables of departments, roles and employees!";
+  console.log(
+    logo({
+      name: "Employee Management System!",
+      font: "Speed",
+      lineChars: 10,
+      padding: 2,
+      margin: 3,
+      borderColor: "grey",
+      logoColor: "bold-yellow",
+      textColor: "yellow",
+    })
+      .emptyLine()
+      .right("version 3.7.123")
+      .emptyLine()
+      .center(longText)
+      .render()
+  );
   startScreen();
 });
 
