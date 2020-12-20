@@ -69,7 +69,23 @@ const startScreen = () => {
     });
 };
 
-const addDeparment = () => {};
+const addDeparment = () => {
+  inquirer
+    .prompt({
+      type: "input",
+      message: "What is the name of the department you would like to add?",
+      name: "department",
+    })
+    .then((answer) => {
+      let query = "INSERT INTO department (name) VALUES (?)";
+      connection.query(query, [answer.department], (err, res) => {
+        if (err) throw err;
+        console.log("Department has been successfully added!");
+        console.table(res);
+        startScreen();
+      });
+    });
+};
 
 const addRole = () => {};
 
